@@ -1,0 +1,17 @@
+.toy-preview {
+    text-align: center;
+    padding: 0.3em;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    min-height: 200px;
+    border-radius: 15px;
+}
+.toy-preview h4{
+    text-transform: capitalize;
+    color: rgb(97, 94, 94);
+}
+
+.toy-preview img {
+    max-width: 100px;
+}

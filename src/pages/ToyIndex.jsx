@@ -1,0 +1,51 @@
+import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+
+import { ToyList } from '../cmps/ToyList.jsx'
+import { loadToys, saveToy, removeToy, setFilterBy } from '../store/actions/toys.actions.js'
+import { useEffectOnUpdate } from '../hooks/useEffectOnUpdate.js'
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
+import { useEffect, useState, } from 'react'
+import { toyService } from '../services/toy.service.js'
+import { ToyFilter } from '../cmps/ToyFilter.jsx'
+
+export function ToyIndex() {
+
+    const isLoading = useSelector(storeState => storeState.toyModule.isLoading)
+    const toys = useSelector(storeState => storeState.toyModule.toys)
+    const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
+
+    const [toyLabels, setToyLabels] = useState()
+
+    useEffect(() => {
+        loadToys()
+        toyService.getToyLabels()
+            .then(labels =>setToyLabels(labels))
+    }, [filterBy])
+
+    function onSetFilter(filterBy) {
+        setFilterBy(filterBy)
+    }
+
+    function onRemoveToy(toyId) {
+        removeToy(toyId)
+            .then(() => {
+                showSuccessMsg('toy removed')
+            })
+            .catch(err => {
+                showErrorMsg('Cannot remove toy')
+            })
+    }
+
+    return (
+        <section>
+            <h1>Toys</h1>
+            <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} toyLabels={toyLabels} />
+            <Link to="/toy/edit">Add Car</Link>
+            {!isLoading
+                ? <ToyList toys={toys} onRemoveToy={onRemoveToy}
+                /> :
+                <div>Loading...</div>}
+        </section>
+    )
+}

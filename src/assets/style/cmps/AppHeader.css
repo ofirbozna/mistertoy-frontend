@@ -1,0 +1,16 @@
+.app-header {
+    background-color: rgb(116, 163, 210);
+    color: white;
+    padding-block: 1em;
+}
+
+.app-header .logo {
+    font-family: libre, sans-serif;
+    font-size: 6rem;
+}
+
+.app-header nav a:not(:first-of-type) {
+    margin-inline-start: 0.5em;
+}
+
+
