@@ -8,7 +8,7 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { useEffect, useState, } from 'react'
 import { toyService } from '../services/toy.service.js'
 import { ToyFilter } from '../cmps/ToyFilter.jsx'
-
+import { useOnlineStatus } from '../hooks/useOnlineStatus.js'
 export function ToyIndex() {
 
     const isLoading = useSelector(storeState => storeState.toyModule.isLoading)
@@ -17,10 +17,15 @@ export function ToyIndex() {
 
     const [toyLabels, setToyLabels] = useState()
 
+    const isOnline = useOnlineStatus()
     useEffect(() => {
+        console.log(`status: ${isOnline ? 'online' : 'offline'}`)
+    }, [isOnline])
+
+    useEffectOnUpdate(() => {
         loadToys()
         toyService.getToyLabels()
-            .then(labels =>setToyLabels(labels))
+            .then(labels => setToyLabels(labels))
     }, [filterBy])
 
     function onSetFilter(filterBy) {
