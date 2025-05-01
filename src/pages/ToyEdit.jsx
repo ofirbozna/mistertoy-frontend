@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { toyService } from '../services/toy.service.js'
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"

@@ -11,7 +11,7 @@ export function loadToys() {
             store.dispatch({ type: SET_TOYS, toys })
         })
         .catch(err => {
-            console.log('toy action -> Cannot load toyss', err)
+            console.log('toy action -> Cannot load toys', err)
             throw err
         })
         .finally(() => {
