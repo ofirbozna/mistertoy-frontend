@@ -20,10 +20,12 @@ export const toyService = {
     remove,
     getEmptyToy,
     getDefaultFilter,
-    getToyLabels
+    getToyLabels,
+    getLabelsCount
 }
 
 function query(filterBy = {}) {
+    console.log(filterBy,'query')
     return httpService.get(BASE_URL, filterBy)
 }
 
@@ -44,6 +46,10 @@ function save(toy) {
     }
 }
 
+function getLabelsCount() {
+    return httpService.get(BASE_URL + 'labels/count')
+}
+
 function getEmptyToy() {
     return {
         name: '',
@@ -57,6 +63,7 @@ function getEmptyToy() {
 function getDefaultFilter() {
     return { txt: '', inStock: '', labels: [], sortBy: 'name', price: '' }
 }
+
 
 function getToyLabels() {
     return Promise.resolve(labels)

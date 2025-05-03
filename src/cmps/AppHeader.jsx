@@ -6,7 +6,9 @@ export function AppHeader() {
             <section className="header-container flex justify-between align-center">
                 <h1>Toy App</h1>
                 <nav className="app-nav">
-                    <NavLink to="/toy" >toys</NavLink>
+                    <NavLink to="/toy" >Toys</NavLink>
+                    <NavLink to="/dashboard" >Dashboard</NavLink>
+                    
                 </nav>
             </section>
         </header>
