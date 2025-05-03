@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-
+import { MultipleSelectFilter } from './MultiSelectFilter.jsx'
 import { utilService } from "../services/util.service.js"
 
 export function ToyFilter({ filterBy, onSetFilter, toyLabels }) {
@@ -24,9 +24,9 @@ export function ToyFilter({ filterBy, onSetFilter, toyLabels }) {
 
     return (
         <section className="car-filter full main-layout">
-            <h2>Cars Filter</h2>
+            <h2>Toys Filter</h2>
             <form >
-                <label htmlFor="name">Vendor:</label>
+                <label htmlFor="name">Name:</label>
                 <input type="text"
                     id="name"
                     name="txt"
@@ -50,7 +50,7 @@ export function ToyFilter({ filterBy, onSetFilter, toyLabels }) {
                     <option value="false">Not in stock</option>
                 </select>
 
-                {toyLabels &&
+                {/* {toyLabels &&
                     <select
                         multiple
                         name="labels"
@@ -66,7 +66,9 @@ export function ToyFilter({ filterBy, onSetFilter, toyLabels }) {
                             ))}
                         </>
                     </select>
-                }
+
+                } */}
+                <MultipleSelectFilter toyLabels={toyLabels} setFilterByToEdit={setFilterByToEdit}/>
 
                 <label htmlFor="sortBy">Sort</label>
                 <select name="sortBy" id="sortBy" value={sortBy} onChange={handleChange}>
