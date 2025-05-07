@@ -6,9 +6,6 @@ export function ToyPreview({ toy }) {
             <h4>{toy.name}</h4>
             <p>Price: <span>${toy.price}</span></p>
             <p>{toy.inStock ? 'In Stock' : 'Out of stock'}</p>
-            {/* <Link to={`/car/edit/${car._id}`}>Edit</Link>
-            <Link to={`/car/${car._id}`}>Details</Link> */}
-
         </article>
     )
 }

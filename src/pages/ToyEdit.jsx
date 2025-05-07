@@ -24,23 +24,39 @@ export function ToyEdit() {
         }
     }, [])
 
-    function loadToy() {
-        toyService.getById(toyId)
-            .then(toy => setToyToEdit(toy))
-            .catch(err => {
-                console.log('Had issues in toy edit', err)
-                navigate('/toy')
-            })
+    async function loadToy() {
+        try {
+            const toy = await toyService.getById(toyId)
+            setToyToEdit(toy)
+        } catch (err) {
+            console.log('Had issues in toy edit', err)
+            navigate('/toy')
+        }
+        // toyService.getById(toyId)
+        //     .then(toy => setToyToEdit(toy))
+        //     .catch(err => {
+        //         console.log('Had issues in toy edit', err)
+        //         navigate('/toy')
+        //     })
     }
 
-    function loadToyLabels() {
-        toyService.getToyLabels()
-            .then(setLabels)
-            .catch(err => {
-                console.log('Had issues in toy edit:', err)
-                navigate('/toy')
-                showErrorMsg('Toy not found!')
-            })
+    async function loadToyLabels() {
+        try {
+            const toyLabels = await toyService.getToyLabels()
+            setLabels(toyLabels)
+        } catch (err) {
+            console.log('Had issues in toy edit:', err)
+            navigate('/toy')
+            showErrorMsg('Toy not found!')
+        }
+
+        // toyService.getToyLabels()
+        //     .then(setLabels)
+        //     .catch(err => {
+        //         console.log('Had issues in toy edit:', err)
+        //         navigate('/toy')
+        //         showErrorMsg('Toy not found!')
+        //     })
     }
 
 
@@ -70,23 +86,22 @@ export function ToyEdit() {
     }
 
 
-    function onSaveToy(ev) {
+    async function onSaveToy(ev) {
         ev.preventDefault()
         if (!toyToEdit.price) toyToEdit.price = 1000
-        saveToy(toyToEdit)
-            .then(() => {
-                showSuccessMsg('toy Saved!')
-                navigate('/toy')
-            })
-            .catch(err => {
-                console.log('Had issues in toy details', err)
-                showErrorMsg('Had issues in toy details')
-            })
+        try {
+            const res = await saveToy(toyToEdit)
+            showSuccessMsg('toy Saved!')
+            navigate('/toy')
+        } catch (err) {
+            console.log('Had issues in toy details', err)
+            showErrorMsg('Had issues in toy details')
+        }
     }
 
     return (
         <section className="toy-edit">
-            <h2>{toyToEdit._id ? 'Edit' : 'Add'} Car</h2>
+            <h2>{toyToEdit._id ? 'Edit' : 'Add'} Toy</h2>
 
             <form onSubmit={onSaveToy}>
 

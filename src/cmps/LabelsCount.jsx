@@ -14,9 +14,9 @@ export function LabelsCount(){
             loadLabelsCount()
         }, [])
     
-        function loadLabelsCount() {
-            toyService.getLabelsCount()
-                .then(labelsCount => setLabelsCount(labelsCount))
+        async function loadLabelsCount() {
+            const labelsCount = await toyService.getLabelsCount()
+                setLabelsCount(labelsCount)
         }
         const data = {
             labels: Object.keys(labelsCount),

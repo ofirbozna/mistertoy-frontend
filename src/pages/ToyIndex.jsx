@@ -26,29 +26,38 @@ export function ToyIndex() {
 
     useEffectOnUpdate(() => {
         loadToys()
-        toyService.getToyLabels()
-            .then(labels => setToyLabels(labels))
+        loadLabels()
+        // toyService.getToyLabels()
+        //     .then(labels => setToyLabels(labels))
     }, [filterBy])
+
+    async function loadLabels() {
+        try {
+            const labels = await toyService.getToyLabels()
+            setToyLabels(labels)
+        } catch (err) {
+            console.log('cannot get labels', err)
+        }
+    }
 
     function onSetFilter(filterBy) {
         setFilterBy(filterBy)
     }
 
-    function onRemoveToy(toyId) {
-        removeToy(toyId)
-            .then(() => {
-                showSuccessMsg('toy removed')
-            })
-            .catch(err => {
-                showErrorMsg('Cannot remove toy')
-            })
+    async function onRemoveToy(toyId) {
+        try {
+          await removeToy(toyId)
+            showSuccessMsg('toy removed')
+        } catch (err) {
+            showErrorMsg('Cannot remove toy')
+        }
     }
 
     return (
         <section>
             <h1>Toys</h1>
             <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} toyLabels={toyLabels} />
-            <Link to="/toy/edit">Add Car</Link>
+            <Link to="/toy/edit">Add Toy</Link>
             {!isLoading
                 ? <ToyList toys={toys} onRemoveToy={onRemoveToy}
                 /> :
