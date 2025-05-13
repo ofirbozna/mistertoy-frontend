@@ -21,11 +21,13 @@ export const toyService = {
     getEmptyToy,
     getDefaultFilter,
     getToyLabels,
-    getLabelsCount
+    getLabelsCount,
+    addToyMsg,
+    removeToyMsg
 }
 
 function query(filterBy = {}) {
-    console.log(filterBy,'query')
+    console.log(filterBy, 'query')
     return httpService.get(BASE_URL, filterBy)
 }
 
@@ -67,4 +69,12 @@ function getDefaultFilter() {
 
 function getToyLabels() {
     return Promise.resolve(labels)
+}
+
+function addToyMsg(toyId, msg) {
+    return httpService.post(BASE_URL + toyId + '/msg', msg)
+}
+
+function removeToyMsg(toyId, msg) {
+    return httpService.post(BASE_URL + toyId + '/msg/' + msg.id, msg)
 }
