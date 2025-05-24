@@ -1,0 +1,42 @@
+.app-header {
+    background-color:#1e293b;
+    color: white;
+    padding: 1em 2em;
+    margin-block-end: 3rem;
+    
+    nav {
+        a:not(:first-of-type) {
+            margin-inline-start: 2em;
+        }
+
+        a{
+            transition: color 0.3s;
+            
+                    &:hover {
+                        color: rgb(162, 197, 197);
+                    }
+        }
+        a.active {
+            font-weight: bold;
+            color: rgb(162, 197, 197);
+        }
+    }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+    button {
+        background-color: transparent;
+        color: white;
+        border: none;
+        margin-inline-start: 0.5rem;
+        text-decoration: underline;
+    }
+
+}
+
+
+// .app-header nav a:not(:first-of-type) {
+//     margin-inline-start: 0.5em;
+// }

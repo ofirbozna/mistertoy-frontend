@@ -1,7 +1,7 @@
 import { BrowserRouter as Router } from 'react-router'
 import { Route, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import './assets/style/main.css'
+import './assets/style/scss/main.scss'
 
 import { ToyIndex } from './pages/ToyIndex.jsx'
 import { store } from './store/store.js'

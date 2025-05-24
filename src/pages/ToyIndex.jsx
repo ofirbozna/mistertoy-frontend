@@ -54,8 +54,7 @@ export function ToyIndex() {
     }
 
     return (
-        <section>
-            <h1>Toys</h1>
+        <section className='toy-index'>
             <ToyFilter filterBy={filterBy} onSetFilter={onSetFilter} toyLabels={toyLabels} />
             <Link to="/toy/edit">Add Toy</Link>
             {!isLoading

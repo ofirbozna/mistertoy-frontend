@@ -1,0 +1,49 @@
+// .toy-preview {
+//     text-align: center;
+//     padding: 0.3em;
+//     display: flex;
+//     flex-direction: column;
+//     width: 150px;
+//     min-height: 200px;
+//     border-radius: 15px;
+
+//     h4{
+//         text-transform: capitalize;
+//         color: rgb(97, 94, 94);
+//     }
+// }
+
+.toy-preview {
+    background-color: #ffffff;
+    padding: 1.2em;
+    border-radius: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: translateY(-4px);
+    }
+
+    h3 {
+        color: #1e293b;
+        margin-bottom: 0.5em;
+    }
+
+    p {
+        color: #64748b;
+        margin: 0.3em 0;
+    }
+
+    .status {
+        font-weight: bold;
+
+        &.in-stock {
+            color: green;
+        }
+
+        &.out-of-stock {
+            color: rgb(235, 110, 110);
+        }
+    }
+}

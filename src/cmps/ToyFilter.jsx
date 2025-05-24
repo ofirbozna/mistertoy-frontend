@@ -23,7 +23,7 @@ export function ToyFilter({ filterBy, onSetFilter, toyLabels }) {
     const { txt, inStock, labels, price, sortBy } = filterByToEdit
 
     return (
-        <section className="car-filter full main-layout">
+        <section className="toy-filter full main-layout">
             <h2>Toys Filter</h2>
             <form >
                 <label htmlFor="name">Name:</label>
@@ -43,35 +43,18 @@ export function ToyFilter({ filterBy, onSetFilter, toyLabels }) {
                     value={price || ''}
                     onChange={handleChange}
                 />
-
+                <label htmlFor="inStock">In stock</label>
                 <select name="inStock" value={inStock || ''} onChange={handleChange}>
                     <option value="">All</option>
-                    <option value="true">In Stock</option>
+                    <option value="true">In Stock:</option>
                     <option value="false">Not in stock</option>
                 </select>
 
-                {/* {toyLabels &&
-                    <select
-                        multiple
-                        name="labels"
-                        value={labels || []}
-                        onChange={handleChange}
-                    >
-                        <option disabled value="">Labels</option>
-                        <>
-                            {toyLabels.map(label => (
-                                <option key={label} value={label}>
-                                    {label}
-                                </option>
-                            ))}
-                        </>
-                    </select>
+                <label htmlFor="labels">Labels:</label>
+                <MultipleSelectFilter toyLabels={toyLabels} setFilterByToEdit={setFilterByToEdit} />
 
-                } */}
-                <MultipleSelectFilter toyLabels={toyLabels} setFilterByToEdit={setFilterByToEdit}/>
-
-                <label htmlFor="sortBy">Sort</label>
-                <select name="sortBy" id="sortBy" value={sortBy} onChange={handleChange}>
+                <label htmlFor="sortBy">Sort by:</label>
+                <select className='sort-by' name="sortBy" id="sortBy" value={sortBy} onChange={handleChange}>
                     <option value="name">Name</option>
                     <option value="createdAt">Creation time</option>
                     <option value="price">Price</option>

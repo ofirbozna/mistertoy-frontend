@@ -1,0 +1,21 @@
+.toy-index{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    >a{
+        align-self: center;
+        background-color:#3b64a6;
+        color: white;
+        border: none;
+        padding: 0.6em 1.2em;
+        border-radius: 0.5em;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        
+
+  
+        &:hover {
+          background-color: darken(#3b64a6, 10%);
+        }  
+    }
+}

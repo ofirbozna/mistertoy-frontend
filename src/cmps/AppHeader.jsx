@@ -17,7 +17,7 @@ export function AppHeader() {
     return (
         <header className="app-header full main-layout">
             <section className="header-container flex justify-between align-center">
-                <h1>Toy App</h1>
+                <h1 className='logo'>Toy App</h1>
                 {user ? (
                     < section className="flex space-between align-center container">
                         <Link to={`/user`}>Hello {user.fullname}</Link>

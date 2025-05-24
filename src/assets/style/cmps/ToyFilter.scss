@@ -1,0 +1,42 @@
+.toy-filter {
+    text-align: center;
+    background-color: white;
+    color: #1e293b;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    // font-family: Arial, Helvetica, sans-serif;
+
+    form {
+        margin: auto;
+        display: grid;
+        max-width: 700px;
+        gap: 0.5rem;
+        grid-template-columns: 1fr 2fr 1fr 2fr;
+
+        input,
+        select {
+            margin-block-end: 1rem;
+            max-width: 200px;
+            padding: 0.6em;
+            margin-bottom: 1em;
+            border-radius: 0.5em;
+            border: 1px solid #ccc;
+        }
+
+        div {
+            margin: 0;
+        }
+
+        label {
+            margin: 0.3rem;
+            font-weight: bold;
+        }
+
+    }
+
+    h2 {
+        color: #64748b;
+        font-size: 1.5rem;
+        margin-block-end: 1em;
+    }
+}
