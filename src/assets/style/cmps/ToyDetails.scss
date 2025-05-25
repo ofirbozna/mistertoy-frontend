@@ -1,0 +1,105 @@
+.toy-details {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .details {
+        padding: 1rem;
+    }
+
+    .green {
+        color: green;
+    }
+
+    .red {
+        color: rgb(235, 110, 110);
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h5 {
+        font-size: 1.2rem;
+        text-decoration: underline;
+    }
+
+    button {
+        padding: 0.5em 1em;
+        border-radius: 0.5em;
+        border: none;
+        background-color: #64748b;
+        color: white;
+
+        &:hover {
+            background-color: darken(#64748b, 10%);
+        }
+    }
+
+    a {
+        padding: 1rem;
+    }
+
+    .messages {
+        background-color: #c2cedb;
+        margin-block: 2rem;
+        padding: 1rem;
+
+
+        .message-card {
+            background-color: rgb(238, 238, 241);
+            padding: 0.5rem;
+            margin-block: 0.5rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            h6 {
+                font-size: 0.9rem;
+            }
+        }
+
+    }
+
+    .reviews {
+        background-color: #c2cedb;
+        margin-block: 3rem;
+        padding: 1rem;
+
+        .review-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            background-color: rgb(238, 238, 241);
+            padding: 0.5rem;
+            margin-block: 0.5rem;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            h6 {
+                font-size: 0.9rem;
+                align-self: center;
+                grid-row: 2;
+            }
+
+            p:nth-of-type(1) {
+                margin: 0;
+                align-self: center;
+                justify-self: end;
+                grid-row: 2;
+            }
+
+
+            p:nth-of-type(2) {
+                grid-row: 3;
+            }
+
+            button {
+                grid-column: 2;
+                aspect-ratio: 1;
+                justify-self: end;
+                padding: 0.1rem;
+                border-radius: 50%;
+            }
+        }
+    }
+}

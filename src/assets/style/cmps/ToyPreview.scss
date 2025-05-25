@@ -35,15 +35,4 @@
         margin: 0.3em 0;
     }
 
-    .status {
-        font-weight: bold;
-
-        &.in-stock {
-            color: green;
-        }
-
-        &.out-of-stock {
-            color: rgb(235, 110, 110);
-        }
-    }
 }
