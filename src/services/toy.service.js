@@ -59,6 +59,7 @@ function getEmptyToy() {
         labels: [],
         createdAt: Date.now(),
         inStock: true,
+        imgUrl:''
     }
 }
 

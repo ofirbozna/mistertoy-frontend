@@ -35,4 +35,14 @@
         margin: 0.3em 0;
     }
 
+    .status{
+        &.in-stock{
+            color: green;
+        }
+
+        &.out-of-stock{
+            color: rgb(202, 40, 40);
+        }
+    }
+
 }

@@ -109,6 +109,7 @@ export function ToyDetails() {
                 <h4 className={toy.inStock ? 'green' : 'red'}>
                     {toy.inStock ? 'In stock' : 'Not in stock'}
                 </h4>
+                {toy.imgUrl && <img src={toy.imgUrl} alt="toy img" />}
             </section>
             <section className='messages'>
                 <h5>Messages:</h5>

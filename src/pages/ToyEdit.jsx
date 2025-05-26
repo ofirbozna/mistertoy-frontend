@@ -5,6 +5,7 @@ import { toyService } from '../services/toy.service.js'
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service.js"
 import { saveToy } from '../store/actions/toys.actions.js'
 import { useConfirmTabClose } from '../hooks/useConfirmTabClose.js'
+import { ImgUploader } from '../cmps/ImgUploader.jsx'
 
 
 export function ToyEdit() {
@@ -12,6 +13,8 @@ export function ToyEdit() {
     const [toyToEdit, setToyToEdit] = useState(toyService.getEmptyToy())
     const { toyId } = useParams()
     const [labels, setLabels] = useState([])
+
+    console.log(toyToEdit)
 
 
     const hasChanges = useRef(false)
@@ -99,6 +102,10 @@ export function ToyEdit() {
         }
     }
 
+    function onUploaded(imgUrl) {
+        setToyToEdit(prevToy => ({ ...prevToy, imgUrl }))
+    }
+
     return (
         <section className="toy-edit">
             <h2>{toyToEdit._id ? 'Edit' : 'Add'} Toy</h2>
@@ -155,7 +162,7 @@ export function ToyEdit() {
                         </label>
                     </div>
                 )}
-
+                <ImgUploader onUploaded={onUploaded} toyToEdit={toyToEdit}/>
                 <button>
                     {toyToEdit._id ? 'Update Toy' : 'Add'}
                 </button>
